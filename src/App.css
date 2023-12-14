@@ -1,0 +1,144 @@
+:root {
+    --white: #fff;
+    --white-dim: rgba(255, 255, 255, 0.7);
+    --white-very-dim: rgba(255, 255, 255, 0.2);
+    --black: #000000;
+    --just-dark: #202023;
+    --accent: #5c6ed0;
+    --accent-transparrent: rgba(92, 110, 208, 0.37);
+}
+
+body {
+    background-color: var(--black) !important;
+    color: var(--white) !important;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none !important;
+}
+
+a:hover {
+    color: var(--white);
+}
+
+h1 {
+    margin-top: 1em !important;
+    margin-bottom: 1em !important;
+}
+
+h1::before {
+    color: var(--white-very-dim);
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    content: "<h1>";
+}
+
+h1::after {
+    color: var(--white-very-dim);
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    content: "</h1>";
+}
+
+div.container {
+    max-width: 1100px;
+}
+
+nav.navbar {
+    top: 0;
+    margin: 0;
+    position: fixed;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 2;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(10px);
+}
+
+.roundImage {
+    max-width: 250px;
+    width: 40%;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 15px 15px 70px var(--accent-transparrent);
+}
+
+a.navbar-brand {
+    color: var(--accent);
+    font-weight: bolder;
+}
+
+a.nav-link {
+    color: var(--white);
+}
+
+a.navbar-brand.show, a.navbar-brand:hover, a.nav-link.show, a.nav-link:hover {
+    color: var(--white-dim);
+}
+
+.link {
+    cursor: pointer;
+    color: var(--white) !important;
+}
+
+.link:hover {
+    color: var(--white-dim) !important;
+}
+
+hr {
+    color: var(--white-dim) !important;
+    opacity: 1 !important;
+}
+
+div.card {
+    background-color: var(--just-dark);
+    color: inherit;
+    padding: 15px;
+    width: 100%;
+    max-width: 500px;
+    text-align: start;
+    font-family: 'Courier New', monospace;
+}
+
+div.card > p {
+    margin: 0;
+    font-family: 'Courier New', monospace;
+}
+
+div.card > p::before {
+    color: var(--accent);
+    content: "~$ hello ";
+    opacity: .70;
+}
+
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+p.shell-text {
+    color: var(--white-dim);
+}
+
+.blinking-cursor {
+    color: var(--accent);
+    animation: blink 1s infinite;
+}
+
+.footer-row {
+    padding: 20px;
+    text-align: center;
+}
+
+span {
+    color: var(--white-dim);
+}
