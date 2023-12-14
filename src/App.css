@@ -3,9 +3,9 @@
     --white-dim: rgba(255, 255, 255, 0.7);
     --white-very-dim: rgba(255, 255, 255, 0.2);
     --black: #000000;
-    --just-dark: #202023;
+    --just-dark: rgba(32, 32, 35, 0.5);
     --accent: #5c6ed0;
-    --accent-transparrent: rgba(92, 110, 208, 0.37);
+    --accent-transparrent: rgba(92, 110, 208, 0.63);
 }
 
 body {
@@ -51,9 +51,21 @@ nav.navbar {
     position: fixed;
     width: 100%;
     background: rgba(0, 0, 0, 0.3);
-    z-index: 2;
+    z-index: 3;
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(10px);
+}
+
+@keyframes shadow-animation {
+    0% {
+        box-shadow: 25px 30px 200px var(--accent-transparrent);
+    }
+    50% {
+        box-shadow: 10px 15px 100px var(--accent-transparrent);
+    }
+    100% {
+        box-shadow: 25px 30px 200px var(--accent-transparrent);
+    }
 }
 
 .roundImage {
@@ -61,7 +73,12 @@ nav.navbar {
     width: 40%;
     border-radius: 50%;
     border: 2px solid white;
-    box-shadow: 15px 15px 70px var(--accent-transparrent);
+    box-shadow: 25px 30px 200px var(--accent-transparrent);
+    animation: shadow-animation 2s infinite;
+}
+
+.popoverThumbnail {
+    width: 100%;
 }
 
 a.navbar-brand {
@@ -99,6 +116,9 @@ div.card {
     max-width: 500px;
     text-align: start;
     font-family: 'Courier New', monospace;
+    z-index: 2;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(10px);
 }
 
 div.card > p {

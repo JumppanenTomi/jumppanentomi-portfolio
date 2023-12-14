@@ -1,7 +1,9 @@
-import {Col, Row} from "react-bootstrap";
+import {Col, OverlayTrigger, Popover, Row} from "react-bootstrap";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faGithub, faLinkedin} from "@fortawesome/free-brands-svg-icons";
 import React from "react";
+import github from '../assets/github-thumbnail.png'
+
 
 type SocialType = {
     name: string,
@@ -10,6 +12,14 @@ type SocialType = {
 }
 
 export default function Socials() {
+    const popover = (
+        <Popover id="popover-basic">
+            <Popover.Header as="h3">Popover right</Popover.Header>
+            <Popover.Body>
+                <img src={github} className={"popoverThumbnail"}/>
+            </Popover.Body>
+        </Popover>
+    )
 
     const socials: SocialType[] = [
         {
@@ -28,7 +38,9 @@ export default function Socials() {
         <Row>
             {socials.map((e) => (
                 <Col xs={"auto"} key={e.name}>
-                    <a className={"link"} href={e.link}>{e.icon}</a>
+                    <OverlayTrigger trigger={"hover"} placement={"bottom"} overlay={popover}>
+                        <a className={"link"} href={e.link}>{e.icon}</a>
+                    </OverlayTrigger>
                 </Col>
             ))}
         </Row>
