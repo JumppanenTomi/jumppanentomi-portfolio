@@ -1,10 +1,11 @@
-import { Nav } from "react-bootstrap";
-import { useTranslation } from "react-i18next";
+import {Nav} from "react-bootstrap";
+import {useTranslation} from "react-i18next";
 import {useEffect, useMemo, useState} from "react";
 import {languagesMap} from "../../Translations/Languages.tsx";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faLanguage} from "@fortawesome/free-solid-svg-icons/faLanguage";
 import {useSearchParams} from "react-router-dom";
+
 export default function LanguageSwitcher() {
     const { i18n } =  useTranslation()
     let [searchParams, setSearchParams] = useSearchParams()
@@ -34,7 +35,7 @@ export default function LanguageSwitcher() {
     }, []);
 
     return (
-        <>
+        <Nav>
             {languages.map((langCode) =>
                     currentLanguage !== langCode && (
                         <Nav.Link key={langCode} onClick={() => changeLanguage(langCode)}>
@@ -43,6 +44,6 @@ export default function LanguageSwitcher() {
                         </Nav.Link>
                     )
             )}
-        </>
+        </Nav>
     );
 }
