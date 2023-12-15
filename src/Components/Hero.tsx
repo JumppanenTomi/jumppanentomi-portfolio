@@ -12,7 +12,7 @@ export default function Hero() {
                 <Col xs={12}>
                     <h1>Tervetuloa!</h1>
                 </Col>
-                <Col xs={12} className={"card"}>
+                <Col xs={12} className={"card"} style={{margin: 20}}>
                     <ShellText text={"# Moikka olen Tomi, viimeisen vuoden Tieto- ja viestintätekniikan insinööriopiskelija Helsingistä."} duration={3000}/>
                 </Col>
             </Row>
