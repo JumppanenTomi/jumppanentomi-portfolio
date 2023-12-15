@@ -238,17 +238,52 @@ th {
     color: var(--accent) !important;
 }
 
-.offcanvas {
-    color: var(--white) !important;
-    background-color: var(--black-transparent) !important;
-    -webkit-backdrop-filter: var(--blur);
-    backdrop-filter: var(--blur);
-    text-align: right;
+p.project-desc {
+    margin-top: var(--margin);
+    margin-bottom: var(--margin);
+}
+
+.icon-middle-text {
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 @media (max-width: 990px) {
+    .project-nav.flex-row {
+        flex: 0 0 auto;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        width: unset;
+        white-space: nowrap;
+        position: relative;
+        /* Hide scrollbar for IE, Edge and Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+    }
+
+    .project-nav.flex-row::-webkit-scrollbar {
+        display: none;
+    }
+
+    .project-nav > .nav-item {
+        flex-shrink: 0;
+        width: auto !important;
+    }
+
     .navbar-collapse.collapse.show > .navbar-nav > .nav-link {
         font-size: 22px !important;
         text-align: right;
+    }
+
+    .offcanvas {
+        color: var(--white) !important;
+        background-color: var(--black-transparent) !important;
+        -webkit-backdrop-filter: var(--blur);
+        backdrop-filter: var(--blur);
+        text-align: right;
+    }
+
+    .mobile-menu {
+        gap: 2em;
     }
 }

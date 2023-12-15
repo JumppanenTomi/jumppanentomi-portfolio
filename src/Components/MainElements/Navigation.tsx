@@ -20,14 +20,14 @@ export default function Navigation() {
                         id={`offcanvasNavbar-expand`}
                         aria-labelledby={`offcanvasNavbarLabel-expand`}
                         placement="end">
-                        <Offcanvas.Header closeButton>
+                        <Offcanvas.Header closeButton closeVariant={"white"}>
                             <Offcanvas.Title id={`offcanvasNavbarLabel-expand`}>
                                 Tomi Jumppanen
                             </Offcanvas.Title>
                         </Offcanvas.Header>
                         <Offcanvas.Body>
                             <Container>
-                                <Row className={"align-content-between"}>
+                                <Row className={"mobile-menu"}>
                                     <Col xs={12} lg={"auto"}>
                                         <Nav className="me-auto">
                                             <Nav.Link className={"collapse-nav-item"}
@@ -38,11 +38,12 @@ export default function Navigation() {
                                         </Nav>
                                     </Col>
                                     <Col/>
-                                    <Col xs={12} lg={"auto"} style={{alignItems: "center", display: "flex"}}>
-                                        <Socials/>
-                                    </Col>
                                     <Col xs={12} lg={"auto"}>
                                         <LanguageSwitcher/>
+                                    </Col>
+                                    <Col xs={12} lg={"auto"}
+                                         style={{alignItems: "center", justifyContent: "end", display: "flex"}}>
+                                        <Socials/>
                                     </Col>
                                 </Row>
                             </Container>

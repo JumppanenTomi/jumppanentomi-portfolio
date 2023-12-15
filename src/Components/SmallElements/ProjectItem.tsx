@@ -10,14 +10,14 @@ export default function ProjectItem({project}: { project: ProjectType }) {
 
     return (
         <Container>
-            {project.logo && <img src={project.logo} height={50}/>}
+            {project.logo && <img alt={"project logo"} src={project.logo} height={30}/>}
             <h3>{project.name}</h3>
             <Stack direction={"horizontal"} gap={2}>
                 {project.tags?.map((e) => (
                     <Badge key={e}>{e}</Badge>
                 ))}
             </Stack>
-            <p>{t(project.description)}</p>
+            <p className={"project-desc"}>{t(project.description)}</p>
             <hr/>
             <Row>
                 <Col/>

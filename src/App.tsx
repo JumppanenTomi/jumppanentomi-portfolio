@@ -27,14 +27,18 @@ function App() {
             path: "/",
             element: (
                 <>
-                    <Navigation/>
-                    <Spacer customHeight={100} id="home"/>
-                    <Hero/>
-                    <Spacer/>
-                    <Bio/>
-                    <Spacer/>
-                    <Projects/>
-                    <Spacer/>
+                    <header>
+                        <Navigation/>
+                    </header>
+                    <main>
+                        <Spacer customHeight={100} id="home"/>
+                        <Hero/>
+                        <Spacer/>
+                        <Bio/>
+                        <Spacer/>
+                        <Projects/>
+                        <Spacer/>
+                    </main>
                     <Footer/>
                 </>
             ),
@@ -42,7 +46,7 @@ function App() {
     ]);
 
     return (
-        <RouterProvider router={router} />
+        <RouterProvider router={router}/>
     )
 }
 

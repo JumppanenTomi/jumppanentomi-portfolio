@@ -5,6 +5,7 @@ import {faBootstrap} from "@fortawesome/free-brands-svg-icons/faBootstrap";
 import {faPepperHot} from "@fortawesome/free-solid-svg-icons/faPepperHot";
 import {faFontAwesome} from "@fortawesome/free-solid-svg-icons";
 import {useTranslation} from "react-i18next";
+import {faLanguage} from "@fortawesome/free-solid-svg-icons/faLanguage";
 
 export default function Footer() {
       const { t } = useTranslation();
@@ -23,6 +24,8 @@ export default function Footer() {
                 <Row className={"footer-row"}>
                 <span>Made with <a href={"https://react.dev/"} target={"_blank"}>React <FontAwesomeIcon icon={faReact}
                                                                                                         color={"#61DBFB"}/></a>, <a
+                    href={"https://www.i18next.com/"} target={"_blank"}>i18next <FontAwesomeIcon icon={faLanguage}
+                                                                                                 color={"#33aca0"}/></a>, <a
                     href={"https://react-bootstrap.netlify.app/"} target={"_blank"}>React Bootstrap <FontAwesomeIcon
                     icon={faBootstrap}
                     color={"#563d7c"}/></a>, <a

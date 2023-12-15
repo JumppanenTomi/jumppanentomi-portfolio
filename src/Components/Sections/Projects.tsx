@@ -36,26 +36,27 @@ export default function Projects() {
             <h2 className={"section-sharp"} id="projects">{t("projects")}</h2>
             <Tab.Container id="left-tabs-example" defaultActiveKey={projects[0].name}>
                 <Row>
+                    {isMobile && (
+                        <Spacer customHeight={12}/>
+                    )}
                     <Col sm={12} lg={4}>
-                        <Nav variant="pills" className={isMobile ? "flex-row" : "flex-column"}>
-                            {projects.map((e) => (
-                                <Nav.Item key={e.name}>
-                                    <Nav.Link eventKey={e.name}>{e.name}</Nav.Link>
+                        <Container>
+                            <Nav variant="pills" className={`project-nav ${isMobile ? 'flex-row' : 'flex-column'}`}>
+                                {projects.map((e) => (
+                                    <Nav.Item key={e.name}>
+                                        <Nav.Link eventKey={e.name}>{e.name}</Nav.Link>
+                                    </Nav.Item>
+                                ))}
+                                <Nav.Item>
+                                    <Nav.Link
+                                        onClick={() => window.open("https://github.com/JumppanenTomi", "_blank")}>{t("moreInGithub")}<FontAwesomeIcon
+                                        icon={faArrowUpRightFromSquare}/></Nav.Link>
                                 </Nav.Item>
-                            ))}
-                            <Nav.Item>
-                                <Nav.Link
-                                    onClick={() => window.open("https://github.com/JumppanenTomi", "_blank")}>{t("moreInGithub")}<FontAwesomeIcon
-                                    icon={faArrowUpRightFromSquare}/></Nav.Link>
-                            </Nav.Item>
-                        </Nav>
+                            </Nav>
+                        </Container>
                     </Col>
                     {isMobile && (
-                        <>
-                            <Spacer customHeight={12}/>
-                            <hr/>
-                            <Spacer customHeight={12}/>
-                        </>
+                        <Spacer customHeight={12}/>
                     )}
                     <Col sm={12} lg={8}>
                         <Tab.Content>
