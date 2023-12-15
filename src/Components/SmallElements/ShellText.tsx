@@ -1,24 +1,47 @@
-import {useState, useEffect} from 'react';
+import {ReactNode, useEffect, useState} from "react";
+import {useTranslation} from "react-i18next";
 
-export default function ShellText({text, duration}: { text: string, duration: number }) {
+interface ShellTextProps {
+    children?: ReactNode;
+    duration: number;
+}
+
+export default function ShellText(props: ShellTextProps) {
+    const {i18n} = useTranslation();
+
+    const {children, duration} = props;
     const [typedText, setTypedText] = useState('');
+    const text = children ? children.toString() : "";
     const interval = duration / text.length;
 
+    // Reset the typed text when language changes
+    useEffect(() => {
+        setTypedText('');
+    }, [i18n.language]);
+
+    // Start "typing" the new text
     useEffect(() => {
         const typeout = setInterval(() => {
             if (typedText.length < text.length) {
-                setTypedText((prevTypedText) => prevTypedText + text[prevTypedText.length]);
+                setTypedText(prevTypedText => prevTypedText + text[prevTypedText.length]);
             } else {
                 clearInterval(typeout);
             }
         }, interval);
-        return () => clearInterval(typeout);
-    }, [typedText, interval, text.length]);
+
+        // Cleanup function
+        return () => {
+            clearInterval(typeout);
+        };
+    }, [i18n.language, typedText, interval, text, setTypedText]); // note that I added `i18n.language` here
 
     return (
-        <p className={"shell-text"}>
+        <div className="shell-text">
+            <p className={"shell-prefix"}>~$ sudo hello-world</p>
             {typedText}
-            <span className="blinking-cursor">|</span>
-        </p>
+            {text.length - typedText.length === 0 && (
+                <p className={"shell-prefix"}>{"~$"}<span className="blinking-cursor">|</span></p>
+            )}
+        </div>
     );
 }

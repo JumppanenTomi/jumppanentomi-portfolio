@@ -4,19 +4,19 @@ import {faReact} from "@fortawesome/free-brands-svg-icons/faReact";
 import {faBootstrap} from "@fortawesome/free-brands-svg-icons/faBootstrap";
 import {faPepperHot} from "@fortawesome/free-solid-svg-icons/faPepperHot";
 import {faFontAwesome} from "@fortawesome/free-solid-svg-icons";
+import {useTranslation} from "react-i18next";
 
 export default function Footer() {
+      const { t } = useTranslation();
+
     return (
         <footer>
             <Container id={"contact"}>
                 <Row>
                     <Col className={"footer-row"}>
                         <h3>
-                            Soita <a href={"tel:+358404868621"}>+358 404868621</a>
                             <br/>
-                            tai
-                            <br/>
-                            Laita viestiä <a href={"mailto:tomi.jumppanen@hotmail.com"}>tomi.jumppanen@hotmail.com</a>
+                            {t("sendEmail")} <a href={"mailto:tomi.jumppanen@hotmail.com"}>tomi.jumppanen@hotmail.com</a>
                         </h3>
                     </Col>
                 </Row>

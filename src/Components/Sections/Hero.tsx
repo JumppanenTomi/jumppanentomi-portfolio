@@ -1,8 +1,11 @@
 import {Col, Container, Row} from "react-bootstrap";
 import tomi from '../../assets/tomi.jpg'
 import ShellText from "../SmallElements/ShellText.tsx";
+import {useTranslation} from "react-i18next";
 
 export default function Hero() {
+    const {t} = useTranslation()
+
     return (
         <Container>
             <Row style={{minHeight: "60vh", alignContent: "center",  justifyContent: "center", textAlign: "center"}}>
@@ -10,10 +13,12 @@ export default function Hero() {
                     <img src={tomi} className={"roundImage cool-shadow moving"}/>
                 </Col>
                 <Col xs={12}>
-                    <h1>Tervetuloa!</h1>
+                    <h1>{t("welcome")}</h1>
                 </Col>
-                <Col xs={12} className={"card"} style={{margin: 20}}>
-                    <ShellText text={"# Moikka olen Tomi, viimeisen vuoden Tieto- ja viestintätekniikan insinööriopiskelija Helsingistä."} duration={3000}/>
+                <Col xs={12} className={"card"}>
+                    <ShellText duration={3000}>
+                        {t("shellDescription")}
+                    </ShellText>
                 </Col>
             </Row>
         </Container>

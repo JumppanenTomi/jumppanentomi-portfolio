@@ -15,7 +15,7 @@ export default function Socials() {
                 );
 
                 return (<Col xs={"auto"} key={e.name}>
-                        <OverlayTrigger trigger={"hover"} placement={"bottom"} overlay={popover}>
+                        <OverlayTrigger trigger={["hover", "focus"]} placement={"bottom"} overlay={popover}>
                             <a className={"link"} href={e.link} target={"_blank"}>{e.icon}</a>
                         </OverlayTrigger>
                     </Col>

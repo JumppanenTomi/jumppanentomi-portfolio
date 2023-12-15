@@ -152,10 +152,10 @@ div.card > p {
     font-family: 'IBM Plex Mono', monospace;
 }
 
-div.card > p::before {
+p.shell-prefix {
     color: var(--accent);
-    content: "~$ sudo hello ";
     opacity: .70;
+    margin: 0;
 }
 
 

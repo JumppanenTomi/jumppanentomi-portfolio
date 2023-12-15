@@ -3,18 +3,21 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faGithub} from "@fortawesome/free-brands-svg-icons";
 import {faDownload} from "@fortawesome/free-solid-svg-icons";
 import {ProjectType} from "../../Data/Projects.tsx";
+import {useTranslation} from "react-i18next";
 
 export default function ProjectItem({project}: { project: ProjectType }) {
+    const {t} = useTranslation()
+
     return (
         <Container>
             {project.logo && <img src={project.logo} height={50}/>}
             <h3>{project.name}</h3>
             <Stack direction={"horizontal"} gap={2}>
                 {project.tags?.map((e) => (
-                    <Badge>{e}</Badge>
+                    <Badge key={e}>{e}</Badge>
                 ))}
             </Stack>
-            <p>{project.description}</p>
+            <p>{t(project.description)}</p>
             <hr/>
             <Row>
                 <Col/>

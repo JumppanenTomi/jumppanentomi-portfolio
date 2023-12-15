@@ -5,21 +5,44 @@ import Hero from "./Components/Sections/Hero.tsx";
 import Projects from "./Components/Sections/Projects.tsx";
 import Footer from "./Components/MainElements/Footer.tsx";
 import Bio from "./Components/Sections/Bio.tsx";
+import i18n from "i18next";
+import {initReactI18next} from "react-i18next";
+import {translations} from "./Translations/Translations.tsx";
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
 
 function App() {
+    i18n
+        .use(initReactI18next) // passes i18n down to react-i18next
+        .init({
+            resources: translations,
+            lng: "fi",
+            fallbackLng: "en",
+            interpolation: {
+                escapeValue: false
+            }
+        });
+
+    const router = createBrowserRouter([
+        {
+            path: "/",
+            element: (
+                <>
+                    <Navigation/>
+                    <Spacer customHeight={100} id="home"/>
+                    <Hero/>
+                    <Spacer/>
+                    <Bio/>
+                    <Spacer/>
+                    <Projects/>
+                    <Spacer/>
+                    <Footer/>
+                </>
+            ),
+        },
+    ]);
 
     return (
-        <>
-            <Navigation/>
-            <Spacer customHeight={100} id="home"/>
-            <Hero/>
-            <Spacer/>
-            <Bio/>
-            <Spacer/>
-            <Projects/>
-            <Spacer/>
-            <Footer/>
-        </>
+        <RouterProvider router={router} />
     )
 }
 
