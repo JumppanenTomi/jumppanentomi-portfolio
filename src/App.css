@@ -6,9 +6,17 @@
     --white-dim: rgba(255, 255, 255, 0.7);
     --white-very-dim: rgba(255, 255, 255, 0.2);
     --black: #000000;
+    --black-transparent: rgba(0, 0, 0, 0.5);
     --just-dark: rgba(32, 32, 35, 0.5);
     --accent: #5c6ed0;
-    --accent-transparrent: rgba(92, 110, 208, 0.63);
+    --accent-transparrent: rgba(92, 110, 208, 0.6);
+    --accent-more-transparrent: rgba(92, 110, 208, 0.4);
+
+    --radius: 15px;
+    --padding: 20px;
+    --border-width: 1px;
+    --margin: 1em;
+    --blur: blur(8px)
 }
 
 body {
@@ -28,8 +36,8 @@ a:hover {
 
 h1 {
     font-weight: 700 !important;
-    margin-top: 1em !important;
-    margin-bottom: 1em !important;
+    margin-top: var(--margin) !important;
+    margin-bottom: var(--margin) !important;
 }
 
 h1::before {
@@ -46,6 +54,11 @@ h1::after {
     content: "</h1>";
 }
 
+.section-sharp::before {
+    content: "# ";
+    color: var(--white-very-dim);
+}
+
 div.container {
     max-width: 1100px;
 }
@@ -55,10 +68,10 @@ nav.navbar {
     margin: 0;
     position: fixed;
     width: 100%;
-    background: rgba(0, 0, 0, 0.3);
+    background: var(--black-transparent);
     z-index: 3;
-    -webkit-backdrop-filter: blur(8px);
-    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: var(--blur);
+    backdrop-filter: var(--blur);
 }
 
 .roundImage {
@@ -80,11 +93,11 @@ nav.navbar {
     }
 }
 
-.cool-shadow{
+.cool-shadow {
     box-shadow: 25px 30px 200px var(--accent-transparrent);
 }
 
-.cool-shadow.moving{
+.cool-shadow.moving {
     animation: shadow-animation 2s infinite;
 }
 
@@ -93,12 +106,12 @@ nav.navbar {
 }
 
 a.navbar-brand {
-    color: var(--accent);
+    color: var(--white);
     font-weight: bolder;
 }
 
 a.nav-link {
-    color: var(--white);
+    color: var(--white) !important;
 }
 
 a.navbar-brand.show, a.navbar-brand:hover, a.nav-link.show, a.nav-link:hover {
@@ -123,15 +136,15 @@ div.card {
     background-color: var(--just-dark);
     color: inherit;
     border-color: var(--white-very-dim);
-    padding: 15px;
+    padding: var(--padding);
     width: 100%;
     max-width: 500px;
-    margin: 20px;
+    margin: var(--margin);
     text-align: start;
     font-family: 'IBM Plex Mono', monospace;
     z-index: 2;
-    -webkit-backdrop-filter: blur(8px);
-    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: var(--blur);
+    backdrop-filter: var(--blur);
 }
 
 div.card > p {
@@ -141,7 +154,7 @@ div.card > p {
 
 div.card > p::before {
     color: var(--accent);
-    content: "~$ hello ";
+    content: "~$ sudo hello ";
     opacity: .70;
 }
 
@@ -167,11 +180,64 @@ p.shell-text {
     animation: blink 1s infinite;
 }
 
+footer {
+    border-top: var(--border-width) solid var(--white);
+}
+
 .footer-row {
-    padding: 20px;
+    padding: var(--padding);
     text-align: center;
+}
+
+.nav-pills > .nav-item > .nav-link.active {
+    background-color: var(--accent) !important;
 }
 
 span {
     color: var(--white-dim);
+}
+
+.popover {
+    border-radius: var(--radius) !important;
+    border: var(--border-width) solid var(--black) !important;
+    box-shadow: 12px 15px 100px var(--accent-more-transparrent);
+    background-color: var(--black) !important;
+}
+
+.popover-arrow{
+    display: none !important;
+}
+
+.popover-header {
+    border-top-left-radius: var(--radius) !important;
+    border-top-right-radius: var(--radius) !important;
+    background-color: unset !important;
+}
+
+.popover-body {
+    border-bottom-left-radius: var(--radius) !important;
+    border-bottom-right-radius: var(--radius) !important;
+    overflow: hidden;
+    background-color: unset !important;
+    padding: 0 !important;
+}
+
+.badge{
+    background-color: var(--accent) !important;
+    border-radius: var(--radius) !important;
+}
+
+th, td {
+    background-color: unset !important;
+    border: unset !important;
+    padding-left: var(--padding);
+    padding-bottom: var(--padding);
+}
+
+td{
+    color: var(--white) !important;
+}
+
+th{
+    color: var(--accent) !important;
 }
