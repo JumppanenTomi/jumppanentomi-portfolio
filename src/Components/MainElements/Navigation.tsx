@@ -5,11 +5,9 @@ import Socials from "./Socials.tsx";
 import {useTranslation} from "react-i18next";
 import LanguageSwitcher from "./LanguageSwitcher.tsx";
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import {useState} from "react";
 
 export default function Navigation() {
     const {t} = useTranslation();
-    const [expand, setExpand] = useState<boolean>(false)
 
     return (
         <>
@@ -19,11 +17,11 @@ export default function Navigation() {
                     <Navbar.Toggle aria-controls="basic-navbar-nav"
                                    children={<FontAwesomeIcon icon={faBurger} color={"#fff"} size={"lg"}/>}/>
                     <Navbar.Offcanvas
-                        id={`offcanvasNavbar-expand-${expand}`}
-                        aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
+                        id={`offcanvasNavbar-expand`}
+                        aria-labelledby={`offcanvasNavbarLabel-expand`}
                         placement="end">
                         <Offcanvas.Header closeButton>
-                            <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
+                            <Offcanvas.Title id={`offcanvasNavbarLabel-expand`}>
                                 Tomi Jumppanen
                             </Offcanvas.Title>
                         </Offcanvas.Header>
