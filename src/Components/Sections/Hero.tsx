@@ -15,7 +15,7 @@ export default function Hero() {
                 <Col xs={12}>
                     <h1>{t("welcome")}</h1>
                 </Col>
-                <Col xs={12} className={"card"}>
+                <Col xs={12}>
                     <ShellText duration={3000}>
                         {t("shellDescription")}
                     </ShellText>

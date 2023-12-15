@@ -137,12 +137,12 @@ div.card {
     color: inherit;
     border-color: var(--white-very-dim);
     padding: var(--padding);
-    width: 100%;
     max-width: 500px;
     margin: var(--margin);
     text-align: start;
     font-family: 'IBM Plex Mono', monospace;
     z-index: 2;
+    border-radius: var(--radius) !important;
     -webkit-backdrop-filter: var(--blur);
     backdrop-filter: var(--blur);
 }
@@ -169,10 +169,6 @@ p.shell-prefix {
     100% {
         opacity: 1;
     }
-}
-
-p.shell-text {
-    color: var(--white-dim);
 }
 
 .blinking-cursor {
@@ -204,7 +200,7 @@ span {
     background-color: var(--black) !important;
 }
 
-.popover-arrow{
+.popover-arrow {
     display: none !important;
 }
 
@@ -222,7 +218,7 @@ span {
     padding: 0 !important;
 }
 
-.badge{
+.badge {
     background-color: var(--accent) !important;
     border-radius: var(--radius) !important;
 }
@@ -234,10 +230,22 @@ th, td {
     padding-bottom: var(--padding);
 }
 
-td{
+td {
     color: var(--white) !important;
 }
 
-th{
+th {
     color: var(--accent) !important;
+}
+
+@media (max-width: 990px) {
+
+    .navbar-collapse.collapse.show > * {
+        flex: 100%;
+    }
+
+    .navbar-collapse.collapse.show > .navbar-nav > .nav-link {
+        font-size: 22px !important;
+        text-align: right;
+    }
 }

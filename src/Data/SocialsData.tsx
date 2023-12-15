@@ -16,12 +16,12 @@ export const socials: SocialType[] = [
             name: "Github",
             link: "https://github.com/JumppanenTomi",
             image: github,
-            icon: <FontAwesomeIcon icon={faGithub} size={"lg"}/>
+            icon: <FontAwesomeIcon icon={faGithub} size={"xl"}/>
         },
         {
             name: "LinkedIn",
             link: "https://www.linkedin.com/in/tomi-jumppanen-516392221/",
             image: linkedin,
-            icon: <FontAwesomeIcon icon={faLinkedin} size={"lg"}/>
+            icon: <FontAwesomeIcon icon={faLinkedin} size={"xl"}/>
         },
     ]

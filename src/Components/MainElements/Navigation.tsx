@@ -14,7 +14,7 @@ export default function Navigation() {
                 <Container>
                     <Navbar.Brand href="#home">Tomi Jumppanen</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav"
-                                   children={<FontAwesomeIcon icon={faBurger} color={"#fff"}/>}/>
+                                   children={<FontAwesomeIcon icon={faBurger} color={"#fff"} size={"lg"}/>}/>
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
                             <Nav.Link href="#home">{t("home")}</Nav.Link>
@@ -22,7 +22,9 @@ export default function Navigation() {
                             <Nav.Link href="#projects">{t("projects")}</Nav.Link>
                             <Nav.Link href="#contact">{t("contact")}</Nav.Link>
                         </Nav>
+                        <hr/>
                         <Socials/>
+                        <hr/>
                         <Nav>
                             <LanguageSwitcher/>
                         </Nav>

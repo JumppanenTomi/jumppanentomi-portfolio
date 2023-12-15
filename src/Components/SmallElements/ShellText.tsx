@@ -36,7 +36,7 @@ export default function ShellText(props: ShellTextProps) {
     }, [i18n.language, typedText, interval, text, setTypedText]); // note that I added `i18n.language` here
 
     return (
-        <div className="shell-text">
+        <div className={"card"}>
             <p className={"shell-prefix"}>~$ sudo hello-world</p>
             {typedText}
             {text.length - typedText.length === 0 && (

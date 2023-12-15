@@ -4,6 +4,7 @@ import {socials} from "../../Data/SocialsData.tsx";
 export default function Socials() {
     return (
         <Row>
+            <Col/>
             {socials.map((e) => {
                 const popover = (
                     <Popover id={`popover-${e.name}`}>
@@ -15,7 +16,7 @@ export default function Socials() {
                 );
 
                 return (<Col xs={"auto"} key={e.name}>
-                        <OverlayTrigger trigger={["hover", "focus"]} placement={"bottom"} overlay={popover}>
+                        <OverlayTrigger trigger={["hover"]} placement={"bottom"} overlay={popover}>
                             <a className={"link"} href={e.link} target={"_blank"}>{e.icon}</a>
                         </OverlayTrigger>
                     </Col>
