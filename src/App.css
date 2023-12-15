@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100&family=Inter:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300&display=swap');
+
 :root {
     --white: #fff;
     --white-dim: rgba(255, 255, 255, 0.7);
@@ -9,6 +12,7 @@
 }
 
 body {
+    font-family: 'Inter', sans-serif !important;
     background-color: var(--black) !important;
     color: var(--white) !important;
 }
@@ -23,20 +27,21 @@ a:hover {
 }
 
 h1 {
+    font-weight: 700 !important;
     margin-top: 1em !important;
     margin-bottom: 1em !important;
 }
 
 h1::before {
     color: var(--white-very-dim);
-    font-family: 'Courier New', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 1rem;
     content: "<h1>";
 }
 
 h1::after {
     color: var(--white-very-dim);
-    font-family: 'Courier New', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 1rem;
     content: "</h1>";
 }
@@ -56,6 +61,13 @@ nav.navbar {
     backdrop-filter: blur(10px);
 }
 
+.roundImage {
+    max-width: 250px;
+    width: 40%;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
 @keyframes shadow-animation {
     0% {
         box-shadow: 25px 30px 200px var(--accent-transparrent);
@@ -68,12 +80,11 @@ nav.navbar {
     }
 }
 
-.roundImage {
-    max-width: 250px;
-    width: 40%;
-    border-radius: 50%;
-    border: 2px solid white;
+.cool-shadow{
     box-shadow: 25px 30px 200px var(--accent-transparrent);
+}
+
+.cool-shadow.moving{
     animation: shadow-animation 2s infinite;
 }
 
@@ -111,11 +122,13 @@ hr {
 div.card {
     background-color: var(--just-dark);
     color: inherit;
+    border-color: var(--white-very-dim);
     padding: 15px;
     width: 100%;
     max-width: 500px;
+    margin: 20px;
     text-align: start;
-    font-family: 'Courier New', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     z-index: 2;
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(10px);
@@ -123,7 +136,7 @@ div.card {
 
 div.card > p {
     margin: 0;
-    font-family: 'Courier New', monospace;
+    font-family: 'IBM Plex Mono', monospace;
 }
 
 div.card > p::before {
