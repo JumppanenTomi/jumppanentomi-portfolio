@@ -1,5 +1,5 @@
 # Personal Portfolio Website
-## About Me
+## About
 Welcome to my personal website, crafted to showcase my projects and potentially evolve into a platform for sharing insights through a blog. Feel free to draw inspiration from here for your own portfolio, but please refrain from duplicating the entire page or its elements to maintain the uniqueness of my portfolio.
 
 ## Technology Stack
