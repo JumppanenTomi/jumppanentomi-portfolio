@@ -9,11 +9,10 @@ import i18n from "i18next";
 import {initReactI18next} from "react-i18next";
 import {translations} from "./Translations/Translations.tsx";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import {Analytics} from '@vercel/analytics/react';
 
 function App() {
-    i18n
-        .use(initReactI18next)
-        .init({
+    i18n.use(initReactI18next).init({
             resources: translations,
             lng: "fi",
             fallbackLng: "en",
@@ -40,6 +39,7 @@ function App() {
                         <Spacer/>
                     </main>
                     <Footer/>
+                    <Analytics/>
                 </>
             ),
         },
