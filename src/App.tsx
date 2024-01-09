@@ -11,6 +11,7 @@ import {translations} from "./Translations/Translations.tsx";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import {Analytics} from '@vercel/analytics/react';
 import {SpeedInsights} from '@vercel/speed-insights/react';
+import Skills from "./Components/Sections/Skills.tsx";
 
 function App() {
     i18n.use(initReactI18next).init({
@@ -35,6 +36,8 @@ function App() {
                         <Hero/>
                         <Spacer/>
                         <Bio/>
+                        <Spacer/>
+                        <Skills/>
                         <Spacer/>
                         <Projects/>
                         <Spacer/>

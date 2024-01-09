@@ -11,6 +11,7 @@
     --accent: #5c6ed0;
     --accent-transparrent: rgba(92, 110, 208, 0.6);
     --accent-more-transparrent: rgba(92, 110, 208, 0.4);
+    --accent-to-accent: rgba(165, 92, 208, 0.1);
 
     --radius: 15px;
     --padding: 20px;
@@ -26,8 +27,12 @@ body {
 }
 
 a {
-    color: var(--accent);
+    color: var(--accent) !important;
     text-decoration: none !important;
+}
+
+a.navbar-brand {
+    color: var(--white) !important;
 }
 
 a:hover {
@@ -133,7 +138,7 @@ hr {
 }
 
 div.card {
-    background-color: var(--just-dark);
+    background: linear-gradient(to left, var(--just-dark), var(--black-transparent));
     color: inherit;
     border-color: var(--white-very-dim);
     padding: var(--padding);
@@ -145,6 +150,11 @@ div.card {
     border-radius: var(--radius) !important;
     -webkit-backdrop-filter: var(--blur);
     backdrop-filter: var(--blur);
+}
+
+div.card.container, div.card.col {
+    max-width: unset;
+    font-family: unset;
 }
 
 div.card > p {
@@ -246,6 +256,19 @@ p.project-desc {
 .icon-middle-text {
     margin-left: 5px;
     margin-right: 5px;
+}
+
+div.btn-toolbar > * {
+    margin-right: var(--margin);
+    margin-left: var(--margin);
+}
+
+button {
+    background-color: var(--accent) !important;
+}
+
+span.badge.bg-primary {
+    background-color: var(--accent) !important;
 }
 
 @media (max-width: 990px) {
