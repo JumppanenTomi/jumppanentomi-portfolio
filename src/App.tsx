@@ -1,6 +1,5 @@
 import './App.css'
 import Navigation from "./Components/MainElements/Navigation.tsx";
-import Spacer from "./Components/MainElements/Spacer.tsx";
 import Hero from "./Components/Sections/Hero.tsx";
 import Projects from "./Components/Sections/Projects.tsx";
 import Footer from "./Components/MainElements/Footer.tsx";
@@ -14,30 +13,26 @@ import {SpeedInsights} from '@vercel/speed-insights/react';
 
 function App() {
     i18n.use(initReactI18next).init({
-            resources: translations,
-            lng: "fi",
-            fallbackLng: "en",
-            interpolation: {
-                escapeValue: false
-            }
-        });
+        resources: translations,
+        lng: "fi",
+        fallbackLng: "en",
+        interpolation: {
+            escapeValue: false
+        }
+    });
 
     const router = createBrowserRouter([
         {
             path: "/",
             element: (
                 <>
-                    <header>
+                    <header id={"home"}>
                         <Navigation/>
                     </header>
                     <main>
-                        <Spacer customHeight={100} id="home"/>
                         <Hero/>
-                        <Spacer/>
                         <Bio/>
-                        <Spacer/>
                         <Projects/>
-                        <Spacer/>
                     </main>
                     <Footer/>
                     <Analytics/>

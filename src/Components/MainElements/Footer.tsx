@@ -1,4 +1,4 @@
-import {Col, Container, Row} from "react-bootstrap";
+import {Col, Container} from "react-bootstrap";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faReact} from "@fortawesome/free-brands-svg-icons/faReact";
 import {faBootstrap} from "@fortawesome/free-brands-svg-icons/faBootstrap";
@@ -8,20 +8,18 @@ import {useTranslation} from "react-i18next";
 import {faLanguage} from "@fortawesome/free-solid-svg-icons/faLanguage";
 
 export default function Footer() {
-      const { t } = useTranslation();
+    const {t} = useTranslation();
 
     return (
         <footer>
             <Container id={"contact"}>
-                <Row>
-                    <Col className={"footer-row"}>
-                        <h3>
-                            <br/>
-                            {t("sendEmail")} <a href={"mailto:tomi.jumppanen@hotmail.com"}>tomi.jumppanen@hotmail.com</a>
-                        </h3>
-                    </Col>
-                </Row>
-                <Row className={"footer-row"}>
+                <Col xs={12} className={"footer-row"}>
+                    <h3>
+                        <br/>
+                        {t("sendEmail")} <a href={"mailto:tomi.jumppanen@hotmail.com"}>tomi.jumppanen@hotmail.com</a>
+                    </h3>
+                </Col>
+                <Col xs={12} className={"footer-row"}>
                 <span>Made with <a href={"https://react.dev/"} target={"_blank"}>React <FontAwesomeIcon icon={faReact}
                                                                                                         color={"#61DBFB"}/></a>, <a
                     href={"https://www.i18next.com/"} target={"_blank"}>i18next <FontAwesomeIcon icon={faLanguage}
@@ -33,7 +31,7 @@ export default function Footer() {
                     icon={faFontAwesome}
                     color={"#538dd7"}/></a> and added some <FontAwesomeIcon
                     icon={faPepperHot} color={"#ff0000"}/></span>
-                </Row>
+                </Col>
             </Container>
         </footer>
     )
