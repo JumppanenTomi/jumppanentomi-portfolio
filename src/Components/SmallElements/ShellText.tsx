@@ -33,7 +33,7 @@ export default function ShellText(props: ShellTextProps) {
         return () => {
             clearInterval(typeout);
         };
-    }, [i18n.language, typedText, interval, text, setTypedText]); // note that I added `i18n.language` here
+    }, [i18n.language, typedText, interval, text, setTypedText]);
 
     return (
         <div className={"card"}>

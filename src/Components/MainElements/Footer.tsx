@@ -4,8 +4,8 @@ import {faReact} from "@fortawesome/free-brands-svg-icons/faReact";
 import {faBootstrap} from "@fortawesome/free-brands-svg-icons/faBootstrap";
 import {faPepperHot} from "@fortawesome/free-solid-svg-icons/faPepperHot";
 import {faFontAwesome} from "@fortawesome/free-solid-svg-icons";
-import {useTranslation} from "react-i18next";
 import {faLanguage} from "@fortawesome/free-solid-svg-icons/faLanguage";
+import {useTranslation} from "react-i18next";
 
 export default function Footer() {
     const {t} = useTranslation();

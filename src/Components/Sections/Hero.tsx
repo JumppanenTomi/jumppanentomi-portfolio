@@ -10,7 +10,8 @@ export default function Hero() {
 
     return (
         <Container>
-            <Row style={{minHeight: "60vh", alignContent: "center", justifyContent: "center", textAlign: "center"}}>
+            <Row
+                style={{marginTop: 200, marginBottom: 200, justifyContent: "center", textAlign: "center"}}>
                 <Col xs={12}>
                     <img src={tomi} className={"roundImage cool-shadow moving"}/>
                 </Col>
@@ -24,8 +25,10 @@ export default function Hero() {
                 </Col>
                 <Col xs={"auto"}>
                     <ButtonToolbar>
-                        {i18n.language == "fi" && <a href={fiCv} target={"_blank"}><Button>Kurkkaa CV:täni</Button></a>}
-                        {i18n.language == "en" && <a href={enCv} target={"_blank"}><Button>Check out my CV</Button></a>}
+                        {i18n.language == "fi" &&
+                            <a href={fiCv} target={"_blank"}><Button>Kurkkaa CV:täni</Button></a>}
+                        {i18n.language == "en" &&
+                            <a href={enCv} target={"_blank"}><Button>Check out my CV</Button></a>}
                         <a href={"#contact"}><Button>{t("contact")}</Button></a>
                     </ButtonToolbar>
                 </Col>

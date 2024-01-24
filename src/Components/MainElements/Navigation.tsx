@@ -9,6 +9,33 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 export default function Navigation() {
     const {t} = useTranslation();
 
+    const CenteredNavLink = ({id, children}: { id: string, children: any }) => {
+        return (
+            <Nav.Link
+                onClick={(e) => {
+                    e.preventDefault();
+
+                    const target = document.getElementById(id);
+                    if (target) {
+                        const viewportHeight = window.innerHeight;
+                        const elementTop = target.getBoundingClientRect().top;
+                        const elementHeight = target.getBoundingClientRect().height;
+                        const scrollPosition =
+                            window.scrollY +
+                            elementTop -
+                            viewportHeight / 2 +
+                            elementHeight / 2;
+
+                        window.scrollTo({top: scrollPosition, behavior: "smooth"});
+                    }
+                }}
+                href={`#${id}`}
+            >
+                {children}
+            </Nav.Link>
+        );
+    };
+
     return (
         <>
             <Navbar expand="lg">
@@ -30,11 +57,10 @@ export default function Navigation() {
                                 <Row className={"mobile-menu"}>
                                     <Col xs={12} lg={"auto"}>
                                         <Nav className="me-auto">
-                                            <Nav.Link className={"collapse-nav-item"}
-                                                      href="#home">{t("home")}</Nav.Link>
-                                            <Nav.Link href="#bio">{t("bio")}</Nav.Link>
-                                            <Nav.Link href="#projects">{t("projects")}</Nav.Link>
-                                            <Nav.Link href="#contact">{t("contact")}</Nav.Link>
+                                            <CenteredNavLink id="home">{t("home")}</CenteredNavLink>
+                                            <CenteredNavLink id="bio">{t("bio")}</CenteredNavLink>
+                                            <CenteredNavLink id="projects">{t("projects")}</CenteredNavLink>
+                                            <CenteredNavLink id="contact">{t("contact")}</CenteredNavLink>
                                         </Nav>
                                     </Col>
                                     <Col/>
