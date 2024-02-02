@@ -2,6 +2,7 @@ import {Dialect, Sequelize} from "sequelize";
 import dotenv from 'dotenv';
 import {applyExtraSetup} from "./extra-setup";
 import userModel from "./Models/user.model";
+import postModel from "./Models/post.model";
 
 dotenv.config();
 
@@ -17,6 +18,7 @@ export const sequelize = new Sequelize(
 
 const modelDefiners = [
     userModel,
+    postModel
 ];
 
 for (const modelDefiner of modelDefiners) {
