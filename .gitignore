@@ -11,7 +11,6 @@ node_modules
 dist
 dist-ssr
 *.local
-backend/.env
 
 # Editor directories and files
 .vscode/*
@@ -24,3 +23,6 @@ backend/.env
 *.sln
 *.sw?
 /package-lock.json
+
+# Other ignored files
+backend/.env
