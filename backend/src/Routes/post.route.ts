@@ -1,5 +1,6 @@
 import express from "express";
 import PostController from "../Controllers/post.controller";
+import passport from "../Utils/passport";
 
 const router = express.Router();
 const controller = PostController()
@@ -39,8 +40,8 @@ export function PostRouter() {
 
     router.get("/", controller.getAllPosts)
         .get("/:id", controller.getPostById)
-        .post("/", controller.addPost)
-        .put("/", controller.updatePost)
+        .post("/", passport.authenticate('jwt', {session: false}), controller.addPost)
+        .put("/", passport.authenticate('jwt', {session: false}), controller.updatePost)
 
     return router
 }

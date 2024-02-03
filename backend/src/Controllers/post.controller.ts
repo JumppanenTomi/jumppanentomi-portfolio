@@ -61,9 +61,10 @@ export default function PostController() {
     };
 
     /**
-     * @swagger
      * /post:
      *   post:
+     *     security:
+     *       - bearerAuth: []
      *     summary: Add a new post
      *     tags: [Post]
      *     requestBody:

@@ -9,26 +9,22 @@ const ExtractJWT = passportJWT.ExtractJwt;
 
 const userModel = UsersModel()
 
-if (!process.env.SECRET) {
+if (!process.env.JWT_SECRET) {
     throw new Error("JWT secret is not defined in .env")
 }
 
 // local strategy for username password login
 passport.use(
     new Strategy(async (username, password, done) => {
-        const params = [username];
         try {
-            const result = await userModel.getUserLogin(params);
-            if (result) {
-                const [user]: any = result;
-                if (user === undefined) {
-                    return done(null, false, {message: "Incorrect email."});
-                }
-                if (!bcryptjs.compareSync(password, user.password)) {
-                    return done(null, false);
-                }
-                return done(null, {...user}, {message: "Logged In Successfully"}); // use spread syntax to create shallow copy to get rid of binary row type
+            const user: any = await userModel.getUserLogin(username);
+            if (user === undefined) {
+                return done(null, false, {message: "Incorrect email or password"});
             }
+            if (!bcryptjs.compareSync(password, user.password)) {
+                return done(null, false, {message: "Incorrect email or password"});
+            }
+            return done(null, {...user.dataValues}, {message: "Logged In Successfully"}); // use spread syntax to create shallow copy to get rid of binary row type
         } catch (err) {
             return done(err);
         }
@@ -37,7 +33,7 @@ passport.use(
 
 passport.use(new JWTStrategy({
         jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
-        secretOrKey: process.env.SECRET
+        secretOrKey: process.env.JWT_SECRET
     },
     async (jwtPayload: any, done: any) => {
         try {
@@ -52,4 +48,4 @@ passport.use(new JWTStrategy({
 ));
 
 
-module.exports = passport;
+export default passport

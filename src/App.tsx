@@ -9,6 +9,7 @@ import i18n from "i18next";
 import {initReactI18next} from "react-i18next";
 import {translations} from "./Translations/Translations.tsx";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import BlogList from "./Components/Sections/BlogList.tsx";
 
 function App() {
     i18n
@@ -43,6 +44,21 @@ function App() {
                 </>
             ),
         },
+        {
+            path: "/blog",
+            element: (
+                <>
+                    <header>
+                        <Navigation/>
+                    </header>
+                    <main>
+                        <Spacer customHeight={100} id="home"/>
+                        <BlogList/>
+                    </main>
+                    <Footer/>
+                </>
+            )
+        }
     ]);
 
     return (

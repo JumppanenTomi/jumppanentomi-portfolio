@@ -8,7 +8,7 @@ import {swaggerOptions} from "./swaggerOptions";
 import path from "node:path";
 import dotenv from "dotenv";
 import {PostRouter} from "./Routes/post.route";
-import passport from "passport";
+import passport from "./Utils/passport";
 import session from "express-session";
 import loggingEnabled from "./Utils/LoggingEnabled";
 
@@ -45,17 +45,22 @@ const serverSetup = () => {
     app.use(cors())
     app.use(express.json())
     app.use(express.urlencoded({extended: true}))
-    if (!process.env.SECRET) {
+    if (!process.env.JWT_SECRET) {
         throw new Error("JWT secret is not defined in .env")
     }
     app.use(session({
-        secret: process.env.SECRET,
+        secret: process.env.JWT_SECRET,
         resave: true,
         saveUninitialized: true
     }));
     app.use(passport.initialize());
     app.use(passport.session());
     app.use("/docs/swagger", swaggerUi.serve, swaggerUi.setup(swaggerJsdoc(swaggerOptions), {explorer: true}));
+    const swaggerSpec = swaggerJsdoc(swaggerOptions);
+    app.get('/docs/swagger.json', (_req, res) => {
+        res.setHeader('Content-Type', 'application/json');
+        res.send(swaggerSpec);
+    });
     app.use('/docs/jsdoc', express.static(path.join(__dirname, 'docs')));
 }
 
@@ -68,7 +73,7 @@ const init = async () => {
     await connectToDatabase();
     serverSetup();
     routerSetup();
-    app.listen(process.env.SERVER_PORT, () => console.log(`Server listening on port ${process.env.SERVER_PORT}!`));
+    app.listen(process.env.API_PORT, () => console.log(`Server listening on port ${process.env.API_PORT}!`));
 }
 
 init()
